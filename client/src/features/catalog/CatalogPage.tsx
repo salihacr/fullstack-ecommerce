@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Product } from "../../app/models/Product";
 import ProductList from "./ProductList";
 
-function Catalog() {
+function CatalogPage() {
     const [products, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
@@ -17,4 +17,4 @@ function Catalog() {
     )
 }
 
-export default Catalog;
+export default CatalogPage;
