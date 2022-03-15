@@ -5,13 +5,14 @@ import { Box } from "@mui/system";
 import { Link } from 'react-router-dom'
 import { useState } from "react";
 import agent from "../../app/api/agent";
-import { useStoreContext } from "../../app/context/StoreContext";
 import BasketSummary from "./BasketSummary";
+import { useAppDispatch, useAppSelector } from "../../app/store/configureStore";
+import { removeItem, setBasket } from "./basketSlice";
 
 export default function BasketPage() {
 
-    const { basket, setBasket, removeItem } = useStoreContext();
-
+    const { basket } = useAppSelector(state => state.basket);
+    const dispatch = useAppDispatch();
     const [status, setStatus] = useState({
         loading: false,
         name: ''
@@ -20,7 +21,7 @@ export default function BasketPage() {
     function handleAddItem(productId: number, name: string) {
         setStatus({ loading: true, name: name });
         agent.Basket.addItem(productId)
-            .then(basket => setBasket(basket))
+            .then(basket => dispatch(setBasket(basket)))
             .catch(error => console.log(error))
             .finally(() => setStatus({ loading: true, name: '' }));
     }
@@ -28,12 +29,12 @@ export default function BasketPage() {
     function handleRemoveItem(productId: number, quantity = 1, name: string) {
         setStatus({ loading: true, name: name });
         agent.Basket.removeItem(productId, quantity)
-            .then(() => removeItem(productId, quantity))
+            .then(() => dispatch(removeItem({ productId, quantity })))
             .catch(error => console.log(error))
             .finally(() => setStatus({ loading: false, name: '' }));
     }
 
-    if (!basket) return <Typography variant='h3'>Your basket is empty</Typography>
+    if (!basket || basket.items.length === 0) return <Typography variant='h3'>Your basket is empty</Typography>
 
     return (
         <>
