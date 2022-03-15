@@ -368,3 +368,5 @@ FodyWeavers.xsd
 **/node_modules/*
 
 node_modules
+
+Migrations/
