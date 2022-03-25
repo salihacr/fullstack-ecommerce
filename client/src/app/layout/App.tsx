@@ -18,6 +18,8 @@ import LoadingComponent from "./LoadingComponent";
 import CheckoutPage from "../../features/checkout/CheckoutPage";
 import { useAppDispatch } from "../store/configureStore";
 import { setBasket } from "../../features/basket/basketSlice";
+import LoginPage from "../../features/account/LoginPage";
+import RegisterPage from "../../features/account/RegisterPage";
 
 function App() {
 
@@ -25,7 +27,6 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("Basket istek atıldı")
     const buyerId = getCookie('buyerId');
     if (buyerId) {
       agent.Basket.get()
@@ -69,6 +70,8 @@ function App() {
             <Route path='/contact' component={ContactPage} />
             <Route path='/basket' component={BasketPage} />
             <Route path='/checkout' component={CheckoutPage} />
+            <Route path='/login' component={LoginPage} />
+            <Route path='/register' component={RegisterPage} />
             <Route path='/server-error' component={ServerError} />
             <Route component={NotFound} />
           </Switch>
