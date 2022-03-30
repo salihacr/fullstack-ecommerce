@@ -20,6 +20,7 @@ import LoginPage from "../../features/account/LoginPage";
 import RegisterPage from "../../features/account/RegisterPage";
 import { fetchCurrentUser } from "../../features/account/accountSlice";
 import PrivateRoute from "./PrivateRoute";
+import OrderPage from "../../features/orders/OrderPage";
 
 function App() {
 
@@ -72,6 +73,7 @@ function App() {
             <Route path='/contact' component={ContactPage} />
             <Route path='/basket' component={BasketPage} />
             <PrivateRoute path='/checkout' component={CheckoutPage} />
+            <PrivateRoute path='/orders' component={OrderPage} />
             <Route path='/login' component={LoginPage} />
             <Route path='/register' component={RegisterPage} />
             <Route path='/server-error' component={ServerError} />
