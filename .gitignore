@@ -370,3 +370,5 @@ FodyWeavers.xsd
 node_modules
 
 Migrations/
+
+appsettings.json
