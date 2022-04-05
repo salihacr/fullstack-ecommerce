@@ -4,6 +4,7 @@ using System.Text;
 using API.Data;
 using API.Entities;
 using API.Middlewares;
+using API.RequestHelpers;
 using API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -61,6 +62,8 @@ namespace API
                 });
             });
 
+
+            services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
             services.AddDbContext<StoreContext>(options =>
             {
@@ -121,6 +124,7 @@ namespace API
             services.AddAuthorization();
             services.AddScoped<TokenService>();
             services.AddScoped<PaymentService>();
+            services.AddScoped<ImageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,6 +7,7 @@ import CatalogPage from "../../features/catalog/CatalogPage";
 import ProductDetailPage from "../../features/catalog/ProductDetailPage";
 import ContactPage from "../../features/contact/ContactPage";
 import HomePage from "../../features/home/HomePage";
+import Inventory from "../../features/admin/Inventory";
 import Header from "./Header";
 import 'react-toastify/dist/ReactToastify.css';
 import ServerError from "../errors/ServerError";
@@ -75,6 +76,7 @@ function App() {
               <Route path='/basket' component={BasketPage} />
               <PrivateRoute path='/checkout' component={CheckoutWrapper} />
               <PrivateRoute path='/orders' component={OrderPage} />
+              <PrivateRoute path='/inventory' component={Inventory} />
               <Route path='/login' component={LoginPage} />
               <Route path='/register' component={RegisterPage} />
               <Route path='/server-error' component={ServerError} />
