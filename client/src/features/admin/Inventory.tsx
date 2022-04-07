@@ -65,8 +65,7 @@ export default function Inventory() {
                         {products.map((product) => (
                             <TableRow
                                 key={product.id}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                 <TableCell component="th" scope="row">
                                     {product.id}
                                 </TableCell>
@@ -85,7 +84,7 @@ export default function Inventory() {
                                     <LoadingButton
                                         loading={loading && target === product.id}
                                         startIcon={<Delete />} color='error'
-                                        onClick={()=> handleDeleteProduct(product.id)} />
+                                        onClick={() => handleDeleteProduct(product.id)} />
                                 </TableCell>
                             </TableRow>
                         ))}
