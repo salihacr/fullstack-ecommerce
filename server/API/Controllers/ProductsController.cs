@@ -56,7 +56,7 @@ namespace API.Controllers
             return Ok(new { brands, types });
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct([FromForm] CreateProductDto productDto)
         {
@@ -80,7 +80,7 @@ namespace API.Controllers
             return BadRequest(new ProblemDetails { Title = "Problem creating new product" });
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         public async Task<ActionResult<Product>> UpdateProduct([FromForm] UpdateProductDto productDto)
         {
@@ -108,7 +108,7 @@ namespace API.Controllers
             return BadRequest(new ProblemDetails { Title = "Problem updating product" });
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteProduct(int id)
         {
