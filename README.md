@@ -1,29 +1,41 @@
-E Commerce Application
-developed with .NET Web Api & React Typescript
+# **E Commerce Web Application**
 
-Installation
+### <b><a href="https://acr-store.herokuapp.com/">View On Heroku</a></b>
 
-git clone this project
+    Technologies
+    - Backend  : .NET 5 Web Api, PostgreSQL
+    - Frontend : React, TypeScript, Redux
 
-locate api project
+    Requirements
+    - .NET 5 SDK, PostgreSql, Node.js, React
 
+## ***Installation***
+
+```
+gh repo clone salihacr/fullstack-ecommerce
+```
+### **Backend**
+```
 cd server/api
+```
 
+```
 dotnet restore
+```
 
-dotnet ef migrations add InitialMigration -o Data/Migrations
-
+```
 dotnet watch run
+```
+### **Frontend**
 
+```
+cd client
+```
 
-Front-End Project
-
-locate client
-
+```
 npm install
+```
 
+```
 npm start
-
-it's ok.
-
-happy coding
+```
